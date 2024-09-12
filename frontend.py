@@ -11,7 +11,7 @@ st.markdown(
     """
     <style>
     .custom-button {
-        background-color:#5BB8D3 ; /* blue */
+        background-color:#0D64D5 ; /* blue */
         padding: 12px 24px;
         font-size: 16px;
         margin: 10px;
