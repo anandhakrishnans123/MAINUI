@@ -93,7 +93,7 @@ st.markdown(
 )
 
 # Page Title and Description
-st.markdown('<div class="title">Attractive Button Redirect</div>', unsafe_allow_html=True)
+st.markdown('<div class="title">Data Mapping Tool Home Page</div>', unsafe_allow_html=True)
 st.markdown('<div class="description">Click the buttons below to be redirected to the relevant pages</div>', unsafe_allow_html=True)
 
 # Function to create a button with a link
