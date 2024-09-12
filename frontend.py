@@ -7,7 +7,7 @@ st.set_page_config(page_title="Attractive Button Redirect", layout="centered")
 st.markdown(
     """
     <style>
-    .stButton button {
+    .custom-button {
         background-color: #f44336; /* Red */
         color: white;
         padding: 12px 24px;
@@ -16,11 +16,13 @@ st.markdown(
         border-radius: 8px;
         border: none;
         cursor: pointer;
-        transition-duration: 0.4s;
         text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        transition-duration: 0.4s;
     }
     
-    .stButton button:hover {
+    .custom-button:hover {
         background-color: #e57373; /* Light Red */
     }
 
@@ -57,7 +59,7 @@ st.markdown('<div class="description">Click the buttons below to be redirected t
 
 # Function to create a button with a link
 def create_button(button_name, link):
-    st.markdown(f'<a href="{link}" target="_blank" class="stButton">{button_name}</a>', unsafe_allow_html=True)
+    st.markdown(f'<a href="{link}" target="_blank" class="custom-button">{button_name}</a>', unsafe_allow_html=True)
 
 # Create a layout with columns for better alignment
 col1, col2, col3 = st.columns([1, 1, 1])
