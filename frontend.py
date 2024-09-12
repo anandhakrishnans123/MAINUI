@@ -30,7 +30,7 @@ st.markdown(
     /* Styling the page */
     body {
         font-family: 'Arial', sans-serif;
-        background-color: #6DA8F6;
+        background-color: #FFFEFD;
         text-align: center;
     }
 
