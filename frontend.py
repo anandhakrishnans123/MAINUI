@@ -1,5 +1,5 @@
 import streamlit as st
-
+import PILImage
 # Set page configuration
 st.set_page_config(page_title="Attractive Button Redirect", layout="centered")
 
