@@ -119,4 +119,7 @@ with col4:
     create_button("Scope 1 Fuel", "https://example.com/sustainability")
 
 with col5:
-    create_button("scope3 category1", "https://scope3category1.stre
+    create_button("scope3 category1", "https://scope3category1.streamlit.app/")
+
+with col6:
+    create_button("scope3 category 6", "https://scope3category6.streamlit.app/")
