@@ -6,7 +6,7 @@ import base64
 # Set page configuration change 
 st.set_page_config(page_title="Attractive Button Redirect", layout="centered")
 
-# Apply custom CSS styles
+# Apply custom CSS styles for buttons and general styling
 st.markdown(
     """
     <style>
@@ -26,23 +26,6 @@ st.markdown(
 
     .custom-button:hover {
         background-color: #F5B300; /* Lighter Orange */
-    }
-
-    /* Specific button text colors */
-    .text-color-waste {
-        color: #FF5733 !important; /* Red */
-    }
-
-    .text-color-scope1 {
-        color: #33C4FF !important; /* Blue */
-    }
-
-    .text-color-scope2 {
-        color: #34D399 !important; /* Green */
-    }
-
-    .text-color-scope3 {
-        color: #F472B6 !important; /* Pink */
     }
 
     /* Styling the page */
@@ -112,30 +95,30 @@ st.markdown(
 st.markdown('<div class="title">Attractive Button Redirect</div>', unsafe_allow_html=True)
 st.markdown('<div class="description">Click the buttons below to be redirected to the relevant pages</div>', unsafe_allow_html=True)
 
-# Function to create a button with a link and optional text color class
-def create_button(button_name, link, text_color_class=''):
-    st.markdown(f'<a href="{link}" target="_blank" class="custom-button {text_color_class}">{button_name}</a>', unsafe_allow_html=True)
+# Function to create a button with a link and inline text color
+def create_button(button_name, link, color='white'):
+    st.markdown(f'<a href="{link}" target="_blank" class="custom-button" style="color:{color};">{button_name}</a>', unsafe_allow_html=True)
 
 # Create a layout with columns for better alignment
 col1, col2, col3 = st.columns([1, 1, 1])
 
 with col1:
-    create_button("Waste", "https://wastefull.streamlit.app/", text_color_class='text-color-waste')
+    create_button("Waste", "https://wastefull.streamlit.app/", color='#FF5733')  # Red
 
 with col2:
-    create_button("Scope 1 Road", "https://scope1-road.streamlit.app/", text_color_class='text-color-scope1')
+    create_button("Scope 1 Road", "https://scope1-road.streamlit.app/", color='#33C4FF')  # Blue
 
 with col3:
-    create_button("scope2", "https://scope2.streamlit.app/", text_color_class='text-color-scope2')
+    create_button("scope2", "https://scope2.streamlit.app/", color='#34D399')  # Green
 
 # Add more rows of buttons by repeating the structure
 col4, col5, col6 = st.columns([1, 1, 1])
 
 with col4:
-    create_button("Scope 1 Fuel", "https://example.com/sustainability")
+    create_button("Scope 1 Fuel", "https://example.com/sustainability", color='white')
 
 with col5:
-    create_button("scope3 category1", "https://scope3category1.streamlit.app/", text_color_class='text-color-scope3')
+    create_button("scope3 category1", "https://scope3category1.streamlit.app/", color='#F472B6')  # Pink
 
 with col6:
-    create_button("scope3 category 6", "https://scope3category6.streamlit.app/", text_color_class='text-color-scope3')
+    create_button("scope3 category 6", "https://scope3category6.streamlit.app/", color='#F472B6')  # Pink
