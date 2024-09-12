@@ -4,7 +4,7 @@ from io import BytesIO
 import base64
 
 # Set page configuration
-st.set_page_config(page_title="Attractive Button Redirect", layout="centered")
+st.set_page_config(page_title="Data Mapping Tool Home Page", layout="centered")
 
 # Apply custom CSS styles
 st.markdown(
