@@ -103,13 +103,13 @@ def create_button(button_name, link, color='white'):
 col1, col2, col3 = st.columns([1, 1, 1])
 
 with col1:
-    create_button("Waste", "https://wastefull.streamlit.app/", color='#FF5733')  # Red
+    create_button("Waste", "https://wastefull.streamlit.app/", color='white')  # Red
 
 with col2:
-    create_button("Scope 1 Road", "https://scope1-road.streamlit.app/", color='#33C4FF')  # Blue
+    create_button("Scope 1 Road", "https://scope1-road.streamlit.app/", color='white')  # Blue
 
 with col3:
-    create_button("scope2", "https://scope2.streamlit.app/", color='#34D399')  # Green
+    create_button("scope2", "https://scope2.streamlit.app/", color='white')  # Green
 
 # Add more rows of buttons by repeating the structure
 col4, col5, col6 = st.columns([1, 1, 1])
@@ -118,7 +118,7 @@ with col4:
     create_button("Scope 1 Fuel", "https://example.com/sustainability", color='white')
 
 with col5:
-    create_button("scope3 category1", "https://scope3category1.streamlit.app/", color='#F472B6')  # Pink
+    create_button("scope3 category1", "https://scope3category1.streamlit.app/", color='white')  # Pink
 
 with col6:
-    create_button("scope3 category 6", "https://scope3category6.streamlit.app/", color='#F472B6')  # Pink
+    create_button("scope3 category 6", "https://scope3category6.streamlit.app/", color='white')  # Pink
