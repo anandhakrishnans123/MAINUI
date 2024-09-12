@@ -1,5 +1,8 @@
 import streamlit as st
-import PILImage
+from PIL import Image
+from io import BytesIO
+import base64
+
 # Set page configuration
 st.set_page_config(page_title="Attractive Button Redirect", layout="centered")
 
@@ -54,7 +57,7 @@ st.markdown(
 )
 
 def resize_image(image_path, width):
-    img = PILImage.open(image_path)
+    img = Image.open(image_path)
     aspect_ratio = img.height / img.width
     new_height = int(width * aspect_ratio)
     img_resized = img.resize((width, new_height))
@@ -89,7 +92,6 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-
 # Page Title and Description
 st.markdown('<div class="title">Attractive Button Redirect</div>', unsafe_allow_html=True)
 st.markdown('<div class="description">Click the buttons below to be redirected to the relevant pages</div>', unsafe_allow_html=True)
@@ -117,7 +119,4 @@ with col4:
     create_button("Scope 1 Fuel", "https://example.com/sustainability")
 
 with col5:
-    create_button("scope3 category1", "https://scope3category1.streamlit.app/")
-
-with col6:
-    create_button("scope3 category 6", "https://scope3category6.streamlit.app/")
+    create_button("scope3 category1", "https://scope3category1.stre
