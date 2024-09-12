@@ -11,7 +11,7 @@ st.markdown(
     """
     <style>
     .custom-button {
-        background-color:#0D64D5 ; /* blue */
+        background-color:#0D64D5; /* blue */
         padding: 12px 24px;
         font-size: 16px;
         margin: 10px;
@@ -19,13 +19,13 @@ st.markdown(
         border: none;
         cursor: pointer;
         text-align: center;
-        text-decoration: none;
+        text-decoration: none; /* Remove underlining */
         display: inline-block;
         transition-duration: 0.4s;
     }
 
     .custom-button:hover {
-        background-color: #2596be; /* Lighter Orange */
+        background-color: #2596be; /* Lighter Blue */
     }
 
     /* Styling the page */
@@ -38,14 +38,14 @@ st.markdown(
     .title {
         font-size: 40px;
         font-weight: bold;
-        color: #333; /* Keep title color as it is */
+        color: #333;
         text-align: center;
         margin-bottom: 40px;
     }
 
     .description {
         font-size: 18px;
-        color: #666; /* Keep description color as it is */
+        color: #666;
         margin-bottom: 40px;
         text-align: center;
     }
@@ -103,13 +103,13 @@ def create_button(button_name, link, color='white'):
 col1, col2, col3 = st.columns([1, 1, 1])
 
 with col1:
-    create_button("Waste", "https://wastefull.streamlit.app/", color='white')  # Red
+    create_button("Waste", "https://wastefull.streamlit.app/", color='white')
 
 with col2:
-    create_button("Scope 1 Road", "https://scope1-road.streamlit.app/", color='white')  # Blue
+    create_button("Scope 1 Road", "https://scope1-road.streamlit.app/", color='white')
 
 with col3:
-    create_button("scope2", "https://scope2.streamlit.app/", color='white')  # Green
+    create_button("scope2", "https://scope2.streamlit.app/", color='white')
 
 # Add more rows of buttons by repeating the structure
 col4, col5, col6 = st.columns([1, 1, 1])
@@ -118,7 +118,7 @@ with col4:
     create_button("Scope 1 Fuel", "https://example.com/sustainability", color='white')
 
 with col5:
-    create_button("scope3 category1", "https://scope3category1.streamlit.app/", color='white')  # Pink
+    create_button("scope3 category1", "https://scope3category1.streamlit.app/", color='white')
 
 with col6:
-    create_button("scope3 category 6", "https://scope3category6.streamlit.app/", color='white')  # Pink
+    create_button("scope3 category 6", "https://scope3category6.streamlit.app/", color='white')
