@@ -8,7 +8,7 @@ st.markdown(
     """
     <style>
     .stButton button {
-        background-color: #4CAF50; /* Green */
+        background-color: #f44336; /* Red */
         color: white;
         padding: 12px 24px;
         font-size: 16px;
@@ -17,10 +17,11 @@ st.markdown(
         border: none;
         cursor: pointer;
         transition-duration: 0.4s;
+        text-align: center;
     }
     
     .stButton button:hover {
-        background-color: #45a049;
+        background-color: #e57373; /* Light Red */
     }
 
     /* Styling the page */
