@@ -4,7 +4,7 @@ from io import BytesIO
 import base64
 
 # Set page configuration change 
-st.set_page_config(page_title="Attractive Button Redirect", layout="centered")
+st.set_page_config(page_title="Data Mapping Tool", layout="centered")
 
 # Apply custom CSS styles for buttons and general styling
 st.markdown(
@@ -92,7 +92,7 @@ st.markdown(
 )
 
 # Page Title and Description
-st.markdown('<div class="title">Attractive Button Redirect</div>', unsafe_allow_html=True)
+st.markdown('<div class="title">Data Mapping Tool</div>', unsafe_allow_html=True)
 st.markdown('<div class="description">Click the buttons below to be redirected to the relevant pages</div>', unsafe_allow_html=True)
 
 # Function to create a button with a link and inline text color
