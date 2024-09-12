@@ -54,10 +54,9 @@ st.markdown(
 st.markdown('<div class="title">Attractive Button Redirect</div>', unsafe_allow_html=True)
 st.markdown('<div class="description">Click the buttons below to be redirected to the relevant pages</div>', unsafe_allow_html=True)
 
-# Function to create a button that redirects to a link
+# Function to create a button with a link
 def create_button(button_name, link):
-    if st.button(button_name):
-        st.markdown(f'<meta http-equiv="refresh" content="0; url={link}" />', unsafe_allow_html=True)
+    st.markdown(f'<a href="{link}" target="_blank" class="stButton">{button_name}</a>', unsafe_allow_html=True)
 
 # Create a layout with columns for better alignment
 col1, col2, col3 = st.columns([1, 1, 1])
@@ -71,7 +70,7 @@ with col2:
 with col3:
     create_button("scope2", "https://scope2.streamlit.app/")
 
-# You can add more rows of buttons by repeating the structure
+# Add more rows of buttons by repeating the structure
 col4, col5, col6 = st.columns([1, 1, 1])
 
 with col4:
@@ -82,5 +81,3 @@ with col5:
 
 with col6:
     create_button("scope3 category 6", "https://scope3category6.streamlit.app/")
-
-# Run the streamlit app with: streamlit run <script_name>.py
