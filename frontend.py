@@ -8,7 +8,7 @@ st.markdown(
     """
     <style>
     .custom-button {
-        background-color: #f44336; /* Red */
+        background-color: #2D80ED; /* Red */
         color: white;
         padding: 12px 24px;
         font-size: 16px;
@@ -29,7 +29,7 @@ st.markdown(
     /* Styling the page */
     body {
         font-family: 'Arial', sans-serif;
-        background-color: #f0f2f6;
+        background-color: #6DA8F6;
         text-align: center;
     }
 
