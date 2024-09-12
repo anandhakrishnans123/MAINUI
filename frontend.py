@@ -11,7 +11,7 @@ st.markdown(
     """
     <style>
     .custom-button {
-        background-color: #E29300; /* Orange */
+        background-color:#2596be ; /* blue */
         padding: 12px 24px;
         font-size: 16px;
         margin: 10px;
@@ -25,7 +25,7 @@ st.markdown(
     }
 
     .custom-button:hover {
-        background-color: #F5B300; /* Lighter Orange */
+        background-color: #2596be; /* Lighter Orange */
     }
 
     /* Styling the page */
