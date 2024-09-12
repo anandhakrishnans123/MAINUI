@@ -8,43 +8,43 @@ st.markdown(
     """
     <style>
     .custom-button {
-    background-color: #2D80ED; /* Blue */
-    color: white;
-    padding: 12px 24px;
-    font-size: 16px;
-    margin: 10px;
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    transition-duration: 0.4s;
-}
+        background-color: #2D80ED; /* Blue */
+        color: white;
+        padding: 12px 24px;
+        font-size: 16px;
+        margin: 10px;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        transition-duration: 0.4s;
+    }
 
-.custom-button:hover {
-    background-color: #64b5f6; /* Light Blue */
-}
-
+    .custom-button:hover {
+        background-color: #64b5f6; /* Light Blue */
+    }
 
     /* Styling the page */
     body {
         font-family: 'Arial', sans-serif;
         background-color: #FFFEFD;
         text-align: center;
+        color: white; /* Change text color to white */
     }
 
     .title {
         font-size: 40px;
         font-weight: bold;
-        color: #333;
+        color: white; /* Change title color to white */
         text-align: center;
         margin-bottom: 40px;
     }
 
     .description {
         font-size: 18px;
-        color: #666;
+        color: white; /* Change description color to white */
         margin-bottom: 40px;
         text-align: center;
     }
@@ -53,6 +53,7 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
+
 
 # Page Title and Description
 st.markdown('<div class="title">Attractive Button Redirect</div>', unsafe_allow_html=True)
