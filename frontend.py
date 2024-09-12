@@ -8,7 +8,7 @@ st.markdown(
     """
     <style>
     .custom-button {
-        background-color: #2D80ED; /* Blue */
+        background-color: #E29300; /* Orange */
         color: white; /* Button text color */
         padding: 12px 24px;
         font-size: 16px;
@@ -23,7 +23,7 @@ st.markdown(
     }
 
     .custom-button:hover {
-        background-color: #64b5f6; /* Light Blue */
+        background-color: #F5B300; /* Lighter Orange */
     }
 
     /* Styling the page */
@@ -52,6 +52,7 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
+
 
 
 # Page Title and Description
