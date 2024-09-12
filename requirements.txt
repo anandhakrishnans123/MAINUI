@@ -1,7 +1,5 @@
-PILImage
 streamlit
 pandas
 openpyxl
+Pillow
 xlsxwriter
-numpy
-xlrd
