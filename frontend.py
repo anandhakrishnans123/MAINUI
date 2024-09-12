@@ -26,7 +26,7 @@ st.markdown(
 
     .custom-button:hover {
         background-color: #2596be; /* Lighter Blue */
-    }
+        text-decoration: none;}
 
     /* Styling the page */
     body {
