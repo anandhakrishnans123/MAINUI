@@ -8,23 +8,24 @@ st.markdown(
     """
     <style>
     .custom-button {
-        background-color: #2D80ED; /* Red */
-        color: white;
-        padding: 12px 24px;
-        font-size: 16px;
-        margin: 10px;
-        border-radius: 8px;
-        border: none;
-        cursor: pointer;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        transition-duration: 0.4s;
-    }
-    
-    .custom-button:hover {
-        background-color: #e57373; /* Light Red */
-    }
+    background-color: #2D80ED; /* Blue */
+    color: white;
+    padding: 12px 24px;
+    font-size: 16px;
+    margin: 10px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    transition-duration: 0.4s;
+}
+
+.custom-button:hover {
+    background-color: #64b5f6; /* Light Blue */
+}
+
 
     /* Styling the page */
     body {
