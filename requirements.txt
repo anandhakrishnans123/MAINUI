@@ -1,3 +1,4 @@
+PILImage
 streamlit
 pandas
 openpyxl
