@@ -9,7 +9,7 @@ st.markdown(
     <style>
     .custom-button {
         background-color: #2D80ED; /* Blue */
-        color: white;
+        color: white; /* Button text color */
         padding: 12px 24px;
         font-size: 16px;
         margin: 10px;
@@ -31,20 +31,19 @@ st.markdown(
         font-family: 'Arial', sans-serif;
         background-color: #FFFEFD;
         text-align: center;
-        color: white; /* Change text color to white */
     }
 
     .title {
         font-size: 40px;
         font-weight: bold;
-        color: white; /* Change title color to white */
+        color: #333; /* Keep title color as it is */
         text-align: center;
         margin-bottom: 40px;
     }
 
     .description {
         font-size: 18px;
-        color: white; /* Change description color to white */
+        color: #666; /* Keep description color as it is */
         margin-bottom: 40px;
         text-align: center;
     }
