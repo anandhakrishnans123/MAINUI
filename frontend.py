@@ -12,7 +12,6 @@ st.markdown(
     <style>
     .custom-button {
         background-color: #E29300; /* Orange */
-        color: white; /* Default button text color */
         padding: 12px 24px;
         font-size: 16px;
         margin: 10px;
@@ -31,19 +30,19 @@ st.markdown(
 
     /* Specific button text colors */
     .text-color-waste {
-        color: #FF5733; /* Red */
+        color: #FF5733 !important; /* Red */
     }
 
     .text-color-scope1 {
-        color: #33C4FF; /* Blue */
+        color: #33C4FF !important; /* Blue */
     }
 
     .text-color-scope2 {
-        color: #34D399; /* Green */
+        color: #34D399 !important; /* Green */
     }
 
     .text-color-scope3 {
-        color: #F472B6; /* Pink */
+        color: #F472B6 !important; /* Pink */
     }
 
     /* Styling the page */
