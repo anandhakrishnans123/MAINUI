@@ -31,8 +31,8 @@ st.markdown(
     }
 
     .custom-button {
-        font-size: 14px; /* Smaller font size for button */
-        padding: 8px 16px; /* Smaller padding for button */
+        font-size: 16px;
+        padding: 12px 24px; /* Larger padding for button */
         border-radius: 8px;
         border: 2px solid #0D64D5;
         background-color: white;
@@ -40,9 +40,8 @@ st.markdown(
         cursor: pointer;
         transition-duration: 0.4s;
         text-decoration: none; /* Remove underline */
-        width: 33%; /* Button width */
+        width: 100%; /* Full width for button */
         display: inline-block; /* Ensure button-like behavior */
-        margin-top: 20px; /* Add space above the button */
     }
 
     .custom-button:hover {
@@ -109,37 +108,20 @@ st.markdown(
 st.markdown('<div class="title">Data Mapping Tool</div>', unsafe_allow_html=True)
 st.markdown('<div class="description">Select an option from the dropdown below to be redirected to the relevant page</div>', unsafe_allow_html=True)
 
-# Create a custom dropdown
-dropdown_html = """
-<select id="custom-dropdown" class="custom-dropdown" onchange="window.location.href=this.value;">
-<option value="" selected>Select a page to visit</option>
-<option value="https://wastefull.streamlit.app/">Waste</option>
-<option value="https://scope1-road.streamlit.app/">Scope 1 Road</option>
-<option value="https://scope2.streamlit.app/">Scope 2</option>
-<option value="https://oceanfrieght.streamlit.app/">Ocean</option>
-<option value="https://scope3category1.streamlit.app/">Scope 3 Category 1</option>
-<option value="https://scope3category6.streamlit.app/">Scope 3 Category 6</option>
-<option value="https://brsractivicty.streamlit.app/">Brsr</option>
-<option value="https://scope1-fuel.streamlit.app/">Scope 1 Fuel</option>
-</select>
-"""
+# Dropdown for selecting the page
+options = {
+    "Waste": "https://wastefull.streamlit.app/",
+    "Scope 1 Road": "https://scope1-road.streamlit.app/",
+    "Scope 2": "https://scope2.streamlit.app/",
+    "Ocean": "https://oceanfrieght.streamlit.app/",
+    "Scope 3 Category 1": "https://scope3category1.streamlit.app/",
+    "Scope 3 Category 6": "https://scope3category6.streamlit.app/",
+    "Brsr": "https://brsractivicty.streamlit.app/",
+    "Scope 1 Fuel": "https://scope1-fuel.streamlit.app/"
+}
 
-st.markdown(dropdown_html, unsafe_allow_html=True)
+selected_option = st.selectbox("Select a page to visit", list(options.keys()), key="dropdown", help="Dropdown for selecting the page")
 
-# Button for action
-if st.button('Go to Selected Page', key='button'):
-    selected_page = st.session_state.get('selected_option')
-    if selected_page:
-        st.write(f'<script>window.location.href="{selected_page}"</script>', unsafe_allow_html=True)
-
-# JavaScript to handle dropdown change
-st.markdown(
-    """
-    <script>
-    document.getElementById('custom-dropdown').addEventListener('change', function() {
-        window.location.href = this.value;
-    });
-    </script>
-    """,
-    unsafe_allow_html=True
-)
+# Redirect based on selection
+if selected_option:
+    st.markdown(f'<a href="{options[selected_option]}" target="_blank" class="custom-button">Go to {selected_option}</a>', unsafe_allow_html=True)
