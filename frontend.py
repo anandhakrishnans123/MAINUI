@@ -11,8 +11,8 @@ st.markdown(
     """
     <style>
     .custom-dropdown {
-        font-size: 14px; /* Smaller font size */
-        padding: 6px 12px; /* Smaller padding */
+        font-size: 16px;
+        padding: 8px 16px; /* Smaller padding for dropdown */
         border-radius: 8px;
         border: 2px solid #0D64D5;
         background-color: white;
@@ -20,6 +20,7 @@ st.markdown(
         cursor: pointer;
         transition-duration: 0.4s;
         text-decoration: none; /* Remove underline */
+        width: 33%; /* Dropdown width */
         display: inline-block; /* Ensure dropdown behaves like a button */
     }
 
@@ -106,13 +107,7 @@ st.markdown(
 st.markdown('<div class="title">Data Mapping Tool</div>', unsafe_allow_html=True)
 st.markdown('<div class="description">Select an option from the dropdown below to be redirected to the relevant page</div>', unsafe_allow_html=True)
 
-# Custom HTML for dropdown
-dropdown_html = """
-<div style="font-size: 14px; padding: 6px 12px; border: 2px solid #0D64D5; border-radius: 8px; display: inline-block; background-color: white; color: black; cursor: pointer;">
-    <select onchange="window.location.href=this.value;" style="border: none; background: transparent; font-size: inherit; padding: inherit; color: inherit;">
-        <option value="" disabled selected>Select a page to visit</option>
-"""
-
+# Dropdown for selecting the page
 options = {
     "Waste": "https://wastefull.streamlit.app/",
     "Scope 1 Road": "https://scope1-road.streamlit.app/",
@@ -124,12 +119,8 @@ options = {
     "Scope 1 Fuel": "https://scope1-fuel.streamlit.app/"
 }
 
-for key, value in options.items():
-    dropdown_html += f'<option value="{value}">Go to {key}</option>'
+selected_option = st.selectbox("Select a page to visit", list(options.keys()), key="dropdown", help="Dropdown for selecting the page")
 
-dropdown_html += """
-    </select>
-</div>
-"""
-
-st.markdown(dropdown_html, unsafe_allow_html=True)
+# Redirect based on selection
+if selected_option:
+    st.markdown(f'<a href="{options[selected_option]}" target="_blank" class="custom-button">Go to {selected_option}</a>', unsafe_allow_html=True)
