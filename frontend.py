@@ -11,8 +11,8 @@ st.markdown(
     """
     <style>
     .custom-dropdown {
-        font-size: 16px;
-        padding: 8px 16px; /* Smaller padding for dropdown */
+        font-size: 14px; /* Smaller font size */
+        padding: 6px 12px; /* Smaller padding */
         border-radius: 8px;
         border: 2px solid #0D64D5;
         background-color: white;
@@ -20,7 +20,7 @@ st.markdown(
         cursor: pointer;
         transition-duration: 0.4s;
         text-decoration: none; /* Remove underline */
-        width: 33%; /* Dropdown width */
+        width: 25%; /* Smaller dropdown width */
         display: inline-block; /* Ensure dropdown behaves like a button */
     }
 
