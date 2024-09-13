@@ -100,7 +100,7 @@ def create_button(button_name, link, color='white'):
     st.markdown(f'<a href="{link}" target="_blank" class="custom-button" style="color:{color};">{button_name}</a>', unsafe_allow_html=True)
 
 # Create a layout with columns for better alignment
-col1, col2, col3 = st.columns([1, 1, 1])
+col1, col2, col3,col4 = st.columns([1, 1, 1,1])
 
 with col1:
     create_button("Waste", "https://wastefull.streamlit.app/", color='white')
@@ -110,15 +110,17 @@ with col2:
 
 with col3:
     create_button("scope2", "https://scope2.streamlit.app/", color='white')
-
-# Add more rows of buttons by repeating the structure
-col4, col5, col6 = st.columns([1, 1, 1])
-
 with col4:
     create_button("Ocean", "https://oceanfrieght.streamlit.app/", color='white')
+# Add more rows of buttons by repeating the structure
+col5, col6,col7,col8 = st.columns([1, 1, 1,1])
 
 with col5:
     create_button("scope3 category1", "https://scope3category1.streamlit.app/", color='white')
 
 with col6:
     create_button("scope3 category 6", "https://scope3category6.streamlit.app/", color='white')
+with col7:
+    create_button("Brsr", "https://brsractivicty.streamlit.app/", color='white')
+with col8:
+    create_button("Scope1 Fuel", "https://scope1-fuel.streamlit.app/", color='white')
