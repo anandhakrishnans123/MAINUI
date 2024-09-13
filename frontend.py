@@ -10,13 +10,6 @@ st.set_page_config(page_title="Data Mapping Tool", layout="centered")
 st.markdown(
     """
     <style>
-    /* Reset default margin and padding */
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
     .custom-dropdown {
         font-size: 16px;
         padding: 12px;
@@ -27,7 +20,6 @@ st.markdown(
         cursor: pointer;
         transition: background-color 0.3s, color 0.3s;
         width: 100%; /* Ensure dropdown fills column width */
-        margin-bottom: 30px; /* Space between dropdown and button */
     }
 
     .custom-dropdown:hover {
@@ -35,15 +27,13 @@ st.markdown(
         color: white;
     }
 
-    .button-container {
-        margin-top: 20px; /* Space between other elements and button */
-    }
-
     /* Styling the page */
     body {
         font-family: 'Arial', sans-serif;
         background-color: #F5F5F5;
         text-align: center;
+        margin: 0;
+        padding: 0;
     }
 
     .title {
@@ -67,8 +57,6 @@ st.markdown(
         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
         padding: 20px;
         margin: 20px;
-        display: inline-block; /* Adjust for padding between items */
-        width: 80%;
     }
 
     .centered-image {
@@ -127,12 +115,8 @@ options = {
 
 selected_option = st.selectbox("Select a page to visit", list(options.keys()), key='page_selector')
 
-# Container for button with margin
-st.markdown('<div class="button-container">', unsafe_allow_html=True)
-
 # Redirect based on selection
 if selected_option:
     st.markdown(f'<a href="{options[selected_option]}" target="_blank" class="custom-dropdown">Go to {selected_option}</a>', unsafe_allow_html=True)
 
-st.markdown('</div>', unsafe_allow_html=True)
 st.markdown('</div>', unsafe_allow_html=True)
