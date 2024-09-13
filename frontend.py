@@ -1,11 +1,3 @@
-import streamlit as st
-from PIL import Image
-from io import BytesIO
-import base64
-
-# Set page configuration change 
-st.set_page_config(page_title="Data Mapping Tool", layout="centered")
-
 # Apply custom CSS styles
 st.markdown(
     """
@@ -16,16 +8,18 @@ st.markdown(
         border-radius: 8px;
         border: 2px solid #0D64D5;
         background-color: white;
-        color: #0D64D5;
+        color: black; /* Default text color */
         cursor: pointer;
         transition-duration: 0.4s;
+        text-decoration: none; /* Remove underline */
         width: 100%; /* Ensure dropdown fills column width */
+        display: inline-block; /* Ensure button-like behavior */
     }
 
     .custom-dropdown:hover {
         background-color: #0D64D5;
-        color: white;
-        text-decoration: none;
+        color: white; /* Text color on hover */
+        text-decoration: none; /* Remove underline on hover */
     }
 
     /* Styling the page */
@@ -54,20 +48,6 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
-
-def resize_image(image_path, width):
-    img = Image.open(image_path)
-    aspect_ratio = img.height / img.width
-    new_height = int(width * aspect_ratio)
-    img_resized = img.resize((width, new_height))
-    
-    # Save the resized image to a BytesIO object
-    buffered = BytesIO()
-    img_resized.save(buffered, format="PNG")
-    
-    # Encode the image to Base64
-    img_base64 = base64.b64encode(buffered.getvalue()).decode("utf-8")
-    return img_base64
 
 # Streamlit app
 st.markdown(
@@ -111,4 +91,4 @@ selected_option = st.selectbox("Select a page to visit", list(options.keys()))
 
 # Redirect based on selection
 if selected_option:
-    st.markdown(f'<a href="{options[selected_option]}" target="_blank" class="custom-dropdown" style="color:white;">Go to {selected_option}</a>', unsafe_allow_html=True)
+    st.markdown(f'<a href="{options[selected_option]}" target="_blank" class="custom-dropdown">Go to {selected_option}</a>', unsafe_allow_html=True)
