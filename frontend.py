@@ -119,10 +119,10 @@ with cols[3]:
 cols = st.columns(4)  # Four equal columns per row
 
 with cols[0]:
-    create_button("Scope 3 Category 1", "https://scope3category1.streamlit.app/", color='white')
+    create_button("Scope 3 Cat-1", "https://scope3category1.streamlit.app/", color='white')
 
 with cols[1]:
-    create_button("Scope 3 Category 6", "https://scope3category6.streamlit.app/", color='white')
+    create_button("Scope 3 Cat-6", "https://scope3category6.streamlit.app/", color='white')
 
 with cols[2]:
     create_button("Brsr", "https://brsractivicty.streamlit.app/", color='white')
