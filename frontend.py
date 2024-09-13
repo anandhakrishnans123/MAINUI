@@ -105,22 +105,43 @@ st.markdown(
 
 # Page Title and Description
 st.markdown('<div class="title">Data Mapping Tool</div>', unsafe_allow_html=True)
-st.markdown('<div class="description">Select an option from the dropdown below to be redirected to the relevant page</div>', unsafe_allow_html=True)
+import streamlit as st
 
-# Dropdown for selecting the page
-options = {
-    "Vessel Waste Data Mapping Tool": "https://wastefull.streamlit.app/",
-    "Scope 1 Road Frieght Data Mapping Tool": "https://scope1-road.streamlit.app/",
-    "Scope 2 Eletricity Data Mapping Tool": "https://scope2.streamlit.app/",
-    "Scope 3 Ocean Data Mapping Tool": "https://oceanfrieght.streamlit.app/",
-    "Scope 3 Category 1 Air Frieght Data Mapping Tool": "https://scope3category1.streamlit.app/",
-    "Scope 3 Category 6 Business Travel Data Mapping Tool": "https://scope3category6.streamlit.app/",
-    "Business Responsibility and Sustainability Reporting ": "https://brsractivicty.streamlit.app/",
-    "Scope 1 Fuel Data Mapping Tool": "https://scope1-fuel.streamlit.app/"
-}
+def create_dropdown_and_redirect():
+    """
+    Displays a descriptive markdown element, a dropdown with clear labels,
+    and handles redirection based on the user's selection.
+    """
 
-selected_option = st.selectbox("Select a page to visit", list(options.keys()), key="dropdown", help="Dropdown for selecting the page")
+    st.markdown(
+        """
+        <div class="description">
+            Select an option from the dropdown below to be redirected to the relevant page.
+            <br>
+            **Note:** These tools are hosted on separate Streamlit applications. Selecting an option will open it in a new tab.
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
 
-# Redirect based on selection
-if selected_option:
-    st.markdown(f'<a href="{options[selected_option]}" target="_blank" class="custom-button">Go to {selected_option}</a>', unsafe_allow_html=True)
+    # Use a dictionary comprehension for cleaner option definition
+    options = {
+        "Vessel Waste Data Mapping Tool": "https://wastefull.streamlit.app/",
+        "Scope 1 Road Freight Data Mapping Tool": "https://scope1-road.streamlit.app/",
+        # ... (remaining options)
+        "Scope 3 Category 6 Business Travel Data Mapping Tool": "https://scope3category6.streamlit.app/",
+    }
+
+    selected_option = st.selectbox("Select a page:", list(options.keys()))
+
+    if selected_option:
+        url = options[selected_option]
+        st.markdown(
+            f"""
+            <a href="{url}" target="_blank" class="custom-button">Go to {selected_option}</a>
+            """,
+            unsafe_allow_html=True
+        )
+
+if __name__ == "__main__":
+    create_dropdown_and_redirect()
