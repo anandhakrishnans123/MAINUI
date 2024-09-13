@@ -116,8 +116,6 @@ def create_dropdown_and_redirect():
         """
         <div class="description">
             Select an option from the dropdown below to be redirected to the relevant page.
-            <br>
-            **Note:** These tools are hosted on separate Streamlit applications. Selecting an option will open it in a new tab.
         </div>
         """,
         unsafe_allow_html=True
