@@ -3,7 +3,7 @@ from PIL import Image
 from io import BytesIO
 import base64
 
-# Set page configuration change 
+# Set page configuration
 st.set_page_config(page_title="Data Mapping Tool", layout="centered")
 
 # Apply custom CSS styles for buttons and general styling
@@ -11,7 +11,7 @@ st.markdown(
     """
     <style>
     .custom-button {
-        background-color:#0D64D5; /* blue */
+        background-color: #0D64D5; /* Blue */
         padding: 12px 24px;
         font-size: 16px;
         margin: 10px;
@@ -22,34 +22,47 @@ st.markdown(
         text-decoration: none; /* Remove underlining */
         display: inline-block;
         transition-duration: 0.4s;
+        color: white;
     }
 
     .custom-button:hover {
         background-color: #2596be; /* Lighter Blue */
-        text-decoration: none;}
+        text-decoration: none;
+    }
 
     /* Styling the page */
     body {
         font-family: 'Arial', sans-serif;
         background-color: #FFFEFD;
         text-align: center;
+        margin: 0;
+        padding: 0;
     }
 
     .title {
         font-size: 40px;
         font-weight: bold;
         color: #333;
-        text-align: center;
-        margin-bottom: 40px;
+        margin-top: 20px;
+        margin-bottom: 20px;
     }
 
     .description {
         font-size: 18px;
         color: #666;
         margin-bottom: 40px;
-        text-align: center;
     }
 
+    .centered-image {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 300px; /* Adjust width as needed */
+    }
+
+    .button-row {
+        margin-bottom: 20px;
+    }
     </style>
     """,
     unsafe_allow_html=True,
@@ -70,20 +83,6 @@ def resize_image(image_path, width):
     return img_base64
 
 # Streamlit app
-st.markdown(
-    """
-    <style>
-    .centered-image {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        width: 300px; /* Adjust width as needed */
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
-
 # Add an image at the top of the app with reduced size
 top_image_base64 = resize_image("logo.png", width=300)  # Adjust width as needed
 st.markdown(
@@ -96,34 +95,17 @@ st.markdown('<div class="title">Data Mapping Tool</div>', unsafe_allow_html=True
 st.markdown('<div class="description">Click the buttons below to be redirected to the relevant pages</div>', unsafe_allow_html=True)
 
 # Function to create a button with a link and inline text color
-def create_button(button_name, link, color='white'):
-    st.markdown(f'<a href="{link}" target="_blank" class="custom-button" style="color:{color};">{button_name}</a>', unsafe_allow_html=True)
+def create_button(button_name, link):
+    st.markdown(f'<a href="{link}" target="_blank" class="custom-button">{button_name}</a>', unsafe_allow_html=True)
 
-# Create a layout with fewer columns and test with different configurations
-cols = st.columns(4)  # Adjust the number of columns as needed
+# Create a grid layout with better alignment
+button_groups = [
+    [("Waste", "https://wastefull.streamlit.app/"), ("Scope 1 Road", "https://scope1-road.streamlit.app/"), ("Scope 2", "https://scope2.streamlit.app/"), ("Ocean", "https://oceanfrieght.streamlit.app/")],
+    [("Scope 3 Category 1", "https://scope3category1.streamlit.app/"), ("Scope 3 Category 6", "https://scope3category6.streamlit.app/"), ("Brsr", "https://brsractivicty.streamlit.app/"), ("Scope 1 Fuel", "https://scope1-fuel.streamlit.app/")]
+]
 
-with cols[0]:
-    create_button("Waste", "https://wastefull.streamlit.app/", color='white')
-
-with cols[1]:
-    create_button("Scope 1 Road", "https://scope1-road.streamlit.app/", color='white')
-
-with cols[2]:
-    create_button("Scope 2", "https://scope2.streamlit.app/", color='white')
-
-with cols[3]:
-    create_button("Ocean", "https://oceanfrieght.streamlit.app/", color='white')
-
-cols = st.columns(4)  # Create another row of columns
-
-with cols[0]:
-    create_button("Scope 3 Category 1", "https://scope3category1.streamlit.app/", color='white')
-
-with cols[1]:
-    create_button("Scope 3 Category 6", "https://scope3category6.streamlit.app/", color='white')
-
-with cols[2]:
-    create_button("Brsr", "https://brsractivicty.streamlit.app/", color='white')
-
-with cols[3]:
-    create_button("Scope 1 Fuel", "https://scope1-fuel.streamlit.app/", color='white')
+for group in button_groups:
+    cols = st.columns(len(group))
+    for col, (name, link) in zip(cols, group):
+        with col:
+            create_button(name, link)
