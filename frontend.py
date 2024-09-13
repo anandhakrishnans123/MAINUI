@@ -3,7 +3,7 @@ from PIL import Image
 from io import BytesIO
 import base64
 
-# Set page configuration change
+# Set page configuration
 st.set_page_config(page_title="Data Mapping Tool", layout="centered")
 
 # Apply custom CSS styles
@@ -105,7 +105,6 @@ st.markdown(
 
 # Page Title and Description
 st.markdown('<div class="title">Data Mapping Tool</div>', unsafe_allow_html=True)
-import streamlit as st
 
 def create_dropdown_and_redirect():
     """
@@ -125,17 +124,16 @@ def create_dropdown_and_redirect():
     )
 
     # Use a dictionary comprehension for cleaner option definition
-   options = {
-    "Vessel Waste Data Mapping Tool": "https://wastefull.streamlit.app/",
-    "Scope 1 Road Freight Data Mapping Tool": "https://scope1-road.streamlit.app/",
-    "Scope 2 Electricity Data Mapping Tool": "https://scope2.streamlit.app/",
-    "Scope 3 Ocean Data Mapping Tool": "https://oceanfrieght.streamlit.app/",
-    "Scope 3 Category 1 Air Freight Data Mapping Tool": "https://scope3category1.streamlit.app/",
-    "Scope 3 Category 6 Business Travel Data Mapping Tool": "https://scope3category6.streamlit.app/",
-    "Business Responsibility and Sustainability Reporting": "https://brsractivicty.streamlit.app/",
-    "Scope 1 Fuel Data Mapping Tool": "https://scope1-fuel.streamlit.app/"
-}
-
+    options = {
+        "Vessel Waste Data Mapping Tool": "https://wastefull.streamlit.app/",
+        "Scope 1 Road Freight Data Mapping Tool": "https://scope1-road.streamlit.app/",
+        "Scope 2 Electricity Data Mapping Tool": "https://scope2.streamlit.app/",
+        "Scope 3 Ocean Data Mapping Tool": "https://oceanfrieght.streamlit.app/",
+        "Scope 3 Category 1 Air Freight Data Mapping Tool": "https://scope3category1.streamlit.app/",
+        "Scope 3 Category 6 Business Travel Data Mapping Tool": "https://scope3category6.streamlit.app/",
+        "Business Responsibility and Sustainability Reporting": "https://brsractivicty.streamlit.app/",
+        "Scope 1 Fuel Data Mapping Tool": "https://scope1-fuel.streamlit.app/"
+    }
 
     selected_option = st.selectbox("Select a page:", list(options.keys()))
 
