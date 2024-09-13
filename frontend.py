@@ -20,12 +20,16 @@ st.markdown(
         cursor: pointer;
         transition: background-color 0.3s, color 0.3s;
         width: 100%; /* Ensure dropdown fills column width */
-        margin-bottom: 15px; /* Padding between items */
+        margin-bottom: 30px; /* Space between dropdown and button */
     }
 
     .custom-dropdown:hover {
         background-color: #0D64D5;
         color: white;
+    }
+
+    .button-container {
+        margin-top: 20px; /* Space between other elements and button */
     }
 
     /* Styling the page */
@@ -118,8 +122,12 @@ options = {
 
 selected_option = st.selectbox("Select a page to visit", list(options.keys()), key='page_selector')
 
+# Container for button with margin
+st.markdown('<div class="button-container">', unsafe_allow_html=True)
+
 # Redirect based on selection
 if selected_option:
     st.markdown(f'<a href="{options[selected_option]}" target="_blank" class="custom-dropdown">Go to {selected_option}</a>', unsafe_allow_html=True)
 
+st.markdown('</div>', unsafe_allow_html=True)
 st.markdown('</div>', unsafe_allow_html=True)
