@@ -1,3 +1,11 @@
+import streamlit as st
+from PIL import Image
+from io import BytesIO
+import base64
+
+# Set page configuration change
+st.set_page_config(page_title="Data Mapping Tool", layout="centered")
+
 # Apply custom CSS styles
 st.markdown(
     """
@@ -12,8 +20,8 @@ st.markdown(
         cursor: pointer;
         transition-duration: 0.4s;
         text-decoration: none; /* Remove underline */
-        width: 75%; /* Smaller width for dropdown */
-        display: inline-block; /* Ensure button-like behavior */
+        width: 33%; /* Dropdown width */
+        display: inline-block; /* Ensure dropdown behaves like a button */
     }
 
     .custom-dropdown:hover {
@@ -64,15 +72,6 @@ st.markdown(
         text-align: center;
     }
 
-    </style>
-    """,
-    unsafe_allow_html=True,
-)
-
-# Streamlit app
-st.markdown(
-    """
-    <style>
     .centered-image {
         display: block;
         margin-left: auto;
@@ -81,8 +80,22 @@ st.markdown(
     }
     </style>
     """,
-    unsafe_allow_html=True
+    unsafe_allow_html=True,
 )
+
+def resize_image(image_path, width):
+    img = Image.open(image_path)
+    aspect_ratio = img.height / img.width
+    new_height = int(width * aspect_ratio)
+    img_resized = img.resize((width, new_height))
+    
+    # Save the resized image to a BytesIO object
+    buffered = BytesIO()
+    img_resized.save(buffered, format="PNG")
+    
+    # Encode the image to Base64
+    img_base64 = base64.b64encode(buffered.getvalue()).decode("utf-8")
+    return img_base64
 
 # Add an image at the top of the app with reduced size
 top_image_base64 = resize_image("logo.png", width=200)  # Adjusted width
