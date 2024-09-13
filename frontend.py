@@ -1,80 +1,10 @@
-import streamlit as st
-from PIL import Image
-from io import BytesIO
-import base64
-
-# Set page configuration change 
-st.set_page_config(page_title="Data Mapping Tool", layout="centered")
-
 # Apply custom CSS styles
 st.markdown(
     """
     <style>
     .custom-dropdown {
         font-size: 16px;
-        padding: 12px 24px;
-        border-radius: 8px;
-        border: 2px solid #0D64D5;
-        background-color: white;
-        color: #0D64D5;
-        cursor: pointer;
-        transition-duration: 0.4s;
-        width: 100%; /* Ensure dropdown fills column width */
-    }
-
-    .custom-dropdown:hover {
-        background-color: #0D64D5;
-        color: white;
-        text-decoration: none;
-    }
-
-    /* Styling the page */
-    body {
-        font-family: 'Arial', sans-serif;
-        background-color: #FFFEFD;
-        text-align: center;
-    }
-
-    .title {
-        font-size: 40px;
-        font-weight: bold;
-        color: #333;
-        text-align: center;
-        margin-bottom: 40px;
-    }
-
-    .description {
-        font-size: 18px;
-        color: #666;
-        margin-bottom: 40px;
-        text-align: center;
-    }
-
-    </style>
-    """,
-    unsafe_allow_html=True,
-)
-
-def resize_image(image_path, width):
-    img = Image.open(image_path)
-    aspect_ratio = img.height / img.width
-    new_height = int(width * aspect_ratio)
-    img_resized = img.resize((width, new_height))
-    
-    # Save the resized image to a BytesIO object
-    buffered = BytesIO()
-    img_resized.save(buffered, format="PNG")
-    
-    # Encode the image to Base64
-    img_base64 = base64.b64encode(buffered.getvalue()).decode("utf-8")
-    return img_base64
-# Apply custom CSS styles
-st.markdown(
-    """
-    <style>
-    .custom-dropdown {
-        font-size: 16px;
-        padding: 12px 24px;
+        padding: 8px 16px; /* Smaller padding for dropdown */
         border-radius: 8px;
         border: 2px solid #0D64D5;
         background-color: white;
@@ -82,11 +12,31 @@ st.markdown(
         cursor: pointer;
         transition-duration: 0.4s;
         text-decoration: none; /* Remove underline */
-        width: 100%; /* Ensure dropdown fills column width */
+        width: 75%; /* Smaller width for dropdown */
         display: inline-block; /* Ensure button-like behavior */
     }
 
     .custom-dropdown:hover {
+        background-color: #0D64D5;
+        color: white; /* Text color on hover */
+        text-decoration: none; /* Remove underline on hover */
+    }
+
+    .custom-button {
+        font-size: 16px;
+        padding: 12px 24px; /* Larger padding for button */
+        border-radius: 8px;
+        border: 2px solid #0D64D5;
+        background-color: white;
+        color: black; /* Default text color */
+        cursor: pointer;
+        transition-duration: 0.4s;
+        text-decoration: none; /* Remove underline */
+        width: 100%; /* Full width for button */
+        display: inline-block; /* Ensure button-like behavior */
+    }
+
+    .custom-button:hover {
         background-color: #0D64D5;
         color: white; /* Text color on hover */
         text-decoration: none; /* Remove underline on hover */
@@ -157,8 +107,8 @@ options = {
     "Scope 1 Fuel": "https://scope1-fuel.streamlit.app/"
 }
 
-selected_option = st.selectbox("Select a page to visit", list(options.keys()))
+selected_option = st.selectbox("Select a page to visit", list(options.keys()), key="dropdown", help="Dropdown for selecting the page")
 
 # Redirect based on selection
 if selected_option:
-    st.markdown(f'<a href="{options[selected_option]}" target="_blank" class="custom-dropdown">Go to {selected_option}</a>', unsafe_allow_html=True)
+    st.markdown(f'<a href="{options[selected_option]}" target="_blank" class="custom-button">Go to {selected_option}</a>', unsafe_allow_html=True)
