@@ -25,6 +25,7 @@ st.markdown(
     .custom-dropdown:hover {
         background-color: #0D64D5;
         color: white;
+        text-decoration: none;
     }
 
     /* Styling the page */
