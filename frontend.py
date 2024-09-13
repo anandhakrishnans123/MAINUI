@@ -31,8 +31,8 @@ st.markdown(
     }
 
     .custom-button {
-        font-size: 16px;
-        padding: 12px 24px; /* Larger padding for button */
+        font-size: 14px; /* Smaller font size for button */
+        padding: 8px 16px; /* Smaller padding for button */
         border-radius: 8px;
         border: 2px solid #0D64D5;
         background-color: white;
@@ -40,8 +40,9 @@ st.markdown(
         cursor: pointer;
         transition-duration: 0.4s;
         text-decoration: none; /* Remove underline */
-        width: 100%; /* Full width for button */
+        width: 33%; /* Button width */
         display: inline-block; /* Ensure button-like behavior */
+        margin-top: 20px; /* Add space above the button */
     }
 
     .custom-button:hover {
