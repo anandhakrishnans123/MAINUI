@@ -12,13 +12,13 @@ st.markdown(
     <style>
     .custom-dropdown {
         font-size: 16px;
-        padding: 12px;
+        padding: 12px 24px;
         border-radius: 8px;
         border: 2px solid #0D64D5;
         background-color: white;
         color: #0D64D5;
         cursor: pointer;
-        transition: background-color 0.3s, color 0.3s;
+        transition-duration: 0.4s;
         width: 100%; /* Ensure dropdown fills column width */
     }
 
@@ -30,18 +30,16 @@ st.markdown(
     /* Styling the page */
     body {
         font-family: 'Arial', sans-serif;
-        background-color: #F5F5F5;
+        background-color: #FFFEFD;
         text-align: center;
-        margin: 0;
-        padding: 0;
     }
 
     .title {
-        font-size: 36px;
+        font-size: 40px;
         font-weight: bold;
         color: #333;
         text-align: center;
-        margin: 40px 0;
+        margin-bottom: 40px;
     }
 
     .description {
@@ -51,20 +49,6 @@ st.markdown(
         text-align: center;
     }
 
-    .card {
-        background-color: white;
-        border-radius: 10px;
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-        padding: 20px;
-        margin: 20px;
-    }
-
-    .centered-image {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        width: 200px; /* Adjusted width */
-    }
     </style>
     """,
     unsafe_allow_html=True,
@@ -86,7 +70,16 @@ def resize_image(image_path, width):
 
 # Streamlit app
 st.markdown(
-    '<div class="card">',
+    """
+    <style>
+    .centered-image {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 200px; /* Adjusted width */
+    }
+    </style>
+    """,
     unsafe_allow_html=True
 )
 
@@ -113,10 +106,8 @@ options = {
     "Scope 1 Fuel": "https://scope1-fuel.streamlit.app/"
 }
 
-selected_option = st.selectbox("Select a page to visit", list(options.keys()), key='page_selector')
+selected_option = st.selectbox("Select a page to visit", list(options.keys()))
 
 # Redirect based on selection
 if selected_option:
-    st.markdown(f'<a href="{options[selected_option]}" target="_blank" class="custom-dropdown">Go to {selected_option}</a>', unsafe_allow_html=True)
-
-st.markdown('</div>', unsafe_allow_html=True)
+    st.markdown(f'<a href="{options[selected_option]}" target="_blank" class="custom-dropdown" style="color:white;">Go to {selected_option}</a>', unsafe_allow_html=True)
