@@ -20,7 +20,6 @@ st.markdown(
         cursor: pointer;
         transition-duration: 0.4s;
         text-decoration: none; /* Remove underline */
-        width: 25%; /* Smaller dropdown width */
         display: inline-block; /* Ensure dropdown behaves like a button */
     }
 
@@ -107,7 +106,13 @@ st.markdown(
 st.markdown('<div class="title">Data Mapping Tool</div>', unsafe_allow_html=True)
 st.markdown('<div class="description">Select an option from the dropdown below to be redirected to the relevant page</div>', unsafe_allow_html=True)
 
-# Dropdown for selecting the page
+# Custom HTML for dropdown
+dropdown_html = """
+<div style="font-size: 14px; padding: 6px 12px; border: 2px solid #0D64D5; border-radius: 8px; display: inline-block; background-color: white; color: black; cursor: pointer;">
+    <select onchange="location = this.value;" style="border: none; background: transparent; font-size: inherit; padding: inherit; color: inherit;">
+        <option value="" disabled selected>Select a page to visit</option>
+"""
+
 options = {
     "Waste": "https://wastefull.streamlit.app/",
     "Scope 1 Road": "https://scope1-road.streamlit.app/",
@@ -119,8 +124,16 @@ options = {
     "Scope 1 Fuel": "https://scope1-fuel.streamlit.app/"
 }
 
-selected_option = st.selectbox("Select a page to visit", list(options.keys()), key="dropdown", help="Dropdown for selecting the page")
+for key, value in options.items():
+    dropdown_html += f'<option value="{value}">Go to {key}</option>'
 
-# Redirect based on selection
+dropdown_html += """
+    </select>
+</div>
+"""
+
+st.markdown(dropdown_html, unsafe_allow_html=True)
+
+# Custom button for redirect
 if selected_option:
     st.markdown(f'<a href="{options[selected_option]}" target="_blank" class="custom-button">Go to {selected_option}</a>', unsafe_allow_html=True)
