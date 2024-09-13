@@ -20,6 +20,7 @@ st.markdown(
         cursor: pointer;
         transition: background-color 0.3s, color 0.3s;
         width: 100%; /* Ensure dropdown fills column width */
+        margin-bottom: 15px; /* Padding between items */
     }
 
     .custom-dropdown:hover {
@@ -57,6 +58,8 @@ st.markdown(
         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
         padding: 20px;
         margin: 20px;
+        display: inline-block; /* Adjust for padding between items */
+        width: 80%;
     }
 
     .centered-image {
