@@ -10,24 +10,33 @@ st.set_page_config(page_title="Data Mapping Tool", layout="centered")
 st.markdown(
     """
     <style>
+    /* Reset default margin and padding */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
     .custom-dropdown {
         font-size: 16px;
         padding: 12px;
         border-radius: 8px;
-        border: none; /* Remove border */
-        background-color: #0D64D5; /* Background color */
-        color: white; /* Text color */
+        border: 2px solid #0D64D5;
+        background-color: white;
+        color: #0D64D5;
         cursor: pointer;
         transition: background-color 0.3s, color 0.3s;
         width: 100%; /* Ensure dropdown fills column width */
-        text-decoration: none; /* Remove underline */
-        display: inline-block; /* Ensure proper spacing */
+        margin-bottom: 30px; /* Space between dropdown and button */
     }
 
     .custom-dropdown:hover {
-        background-color: #2596be; /* Lighter Blue */
-        color: white; /* Text color on hover */
-        text-decoration: none; /* Ensure no underline on hover */
+        background-color: #0D64D5;
+        color: white;
+    }
+
+    .button-container {
+        margin-top: 20px; /* Space between other elements and button */
     }
 
     /* Styling the page */
@@ -35,8 +44,6 @@ st.markdown(
         font-family: 'Arial', sans-serif;
         background-color: #F5F5F5;
         text-align: center;
-        margin: 0;
-        padding: 0;
     }
 
     .title {
