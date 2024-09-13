@@ -6,28 +6,26 @@ import base64
 # Set page configuration change 
 st.set_page_config(page_title="Data Mapping Tool", layout="centered")
 
-# Apply custom CSS styles for buttons and general styling
+# Apply custom CSS styles
 st.markdown(
     """
     <style>
-    .custom-button {
-        background-color:#0D64D5; /* blue */
-        padding: 12px 24px;
+    .custom-dropdown {
         font-size: 16px;
-        margin: 10px;
+        padding: 12px 24px;
         border-radius: 8px;
-        border: none;
+        border: 2px solid #0D64D5;
+        background-color: white;
+        color: #0D64D5;
         cursor: pointer;
-        text-align: center;
-        text-decoration: none; /* Remove underlining */
-        display: inline-block;
         transition-duration: 0.4s;
-        width: 100%; /* Ensure buttons fill column width */
+        width: 100%; /* Ensure dropdown fills column width */
     }
 
-    .custom-button:hover {
-        background-color: #2596be; /* Lighter Blue */
-        text-decoration: none;}
+    .custom-dropdown:hover {
+        background-color: #0D64D5;
+        color: white;
+    }
 
     /* Styling the page */
     body {
@@ -112,4 +110,4 @@ selected_option = st.selectbox("Select a page to visit", list(options.keys()))
 
 # Redirect based on selection
 if selected_option:
-    st.markdown(f'<a href="{options[selected_option]}" target="_blank" class="custom-button" style="color:white;">Go to {selected_option}</a>', unsafe_allow_html=True)
+    st.markdown(f'<a href="{options[selected_option]}" target="_blank" class="custom-dropdown" style="color:white;">Go to {selected_option}</a>', unsafe_allow_html=True)
