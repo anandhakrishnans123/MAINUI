@@ -115,7 +115,7 @@ with col3:
 col4, col5, col6 = st.columns([1, 1, 1])
 
 with col4:
-    create_button("Scope 1 Fuel", "https://example.com/sustainability", color='white')
+    create_button("Ocean", "https://oceanfrieght.streamlit.app/", color='white')
 
 with col5:
     create_button("scope3 category1", "https://scope3category1.streamlit.app/", color='white')
