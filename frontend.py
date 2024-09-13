@@ -1,3 +1,73 @@
+import streamlit as st
+from PIL import Image
+from io import BytesIO
+import base64
+
+# Set page configuration change 
+st.set_page_config(page_title="Data Mapping Tool", layout="centered")
+
+# Apply custom CSS styles
+st.markdown(
+    """
+    <style>
+    .custom-dropdown {
+        font-size: 16px;
+        padding: 12px 24px;
+        border-radius: 8px;
+        border: 2px solid #0D64D5;
+        background-color: white;
+        color: #0D64D5;
+        cursor: pointer;
+        transition-duration: 0.4s;
+        width: 100%; /* Ensure dropdown fills column width */
+    }
+
+    .custom-dropdown:hover {
+        background-color: #0D64D5;
+        color: white;
+        text-decoration: none;
+    }
+
+    /* Styling the page */
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #FFFEFD;
+        text-align: center;
+    }
+
+    .title {
+        font-size: 40px;
+        font-weight: bold;
+        color: #333;
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .description {
+        font-size: 18px;
+        color: #666;
+        margin-bottom: 40px;
+        text-align: center;
+    }
+
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
+def resize_image(image_path, width):
+    img = Image.open(image_path)
+    aspect_ratio = img.height / img.width
+    new_height = int(width * aspect_ratio)
+    img_resized = img.resize((width, new_height))
+    
+    # Save the resized image to a BytesIO object
+    buffered = BytesIO()
+    img_resized.save(buffered, format="PNG")
+    
+    # Encode the image to Base64
+    img_base64 = base64.b64encode(buffered.getvalue()).decode("utf-8")
+    return img_base64
 # Apply custom CSS styles
 st.markdown(
     """
