@@ -109,7 +109,7 @@ st.markdown('<div class="description">Select an option from the dropdown below t
 # Custom HTML for dropdown
 dropdown_html = """
 <div style="font-size: 14px; padding: 6px 12px; border: 2px solid #0D64D5; border-radius: 8px; display: inline-block; background-color: white; color: black; cursor: pointer;">
-    <select onchange="location = this.value;" style="border: none; background: transparent; font-size: inherit; padding: inherit; color: inherit;">
+    <select onchange="window.location.href=this.value;" style="border: none; background: transparent; font-size: inherit; padding: inherit; color: inherit;">
         <option value="" disabled selected>Select a page to visit</option>
 """
 
@@ -133,7 +133,3 @@ dropdown_html += """
 """
 
 st.markdown(dropdown_html, unsafe_allow_html=True)
-
-# Custom button for redirect
-if selected_option:
-    st.markdown(f'<a href="{options[selected_option]}" target="_blank" class="custom-button">Go to {selected_option}</a>', unsafe_allow_html=True)
