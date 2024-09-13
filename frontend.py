@@ -78,7 +78,7 @@ st.markdown(
         display: block;
         margin-left: auto;
         margin-right: auto;
-        width: 300px; /* Adjust width as needed */
+        width: 200px; /* Adjusted width */
     }
     </style>
     """,
@@ -86,7 +86,7 @@ st.markdown(
 )
 
 # Add an image at the top of the app with reduced size
-top_image_base64 = resize_image("logo.png", width=300)  # Adjust width as needed
+top_image_base64 = resize_image("logo.png", width=200)  # Adjusted width
 st.markdown(
     f'<img src="data:image/png;base64,{top_image_base64}" class="centered-image">',
     unsafe_allow_html=True
