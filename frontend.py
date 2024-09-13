@@ -14,22 +14,20 @@ st.markdown(
         font-size: 16px;
         padding: 12px;
         border-radius: 8px;
-        border: 2px solid #0D64D5;
-        background-color: white;
-        color: #0D64D5;
+        border: none; /* Remove border */
+        background-color: #0D64D5; /* Background color */
+        color: white; /* Text color */
         cursor: pointer;
         transition: background-color 0.3s, color 0.3s;
         width: 100%; /* Ensure dropdown fills column width */
-        margin-bottom: 30px; /* Space between dropdown and button */
+        text-decoration: none; /* Remove underline */
+        display: inline-block; /* Ensure proper spacing */
     }
 
     .custom-dropdown:hover {
-        background-color: #0D64D5;
-        color: white;
-    }
-
-    .button-container {
-        margin-top: 20px; /* Space between other elements and button */
+        background-color: #2596be; /* Lighter Blue */
+        color: white; /* Text color on hover */
+        text-decoration: none; /* Ensure no underline on hover */
     }
 
     /* Styling the page */
